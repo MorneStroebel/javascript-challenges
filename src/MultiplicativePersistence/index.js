@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.multiplicativeWithCountClear = multiplicativeWithCountClear;
+exports.multiplicativePersistence = multiplicativePersistence;
 { /*
     Multiplicative persistence refers to the number of times you must multiply the digits of a number until you reach a single-digit number. To calculate it, you:
         1.	Take a number (e.g., 39).
@@ -17,20 +17,12 @@ exports.multiplicativeWithCountClear = multiplicativeWithCountClear;
 
 */
 }
-var count = 0;
 function multiplicativePersistence(num) {
     if (num < 10)
         return -1;
-    var numToString = Math.abs(num).toString();
-    count++;
-    var total = 1;
-    for (var i = 0; i < numToString.length; i++) {
-        total *= Number(numToString[i]);
-    }
-    multiplicativePersistence(total);
-    return count;
-}
-function multiplicativeWithCountClear(num) {
-    count = 0;
-    return multiplicativePersistence(num);
+    var stingNumber = Math.abs(num).toString();
+    var product = stingNumber.split('').reduce(function (total, x) {
+        return total * Number(x);
+    }, 1);
+    return 1 + multiplicativePersistence(product);
 }

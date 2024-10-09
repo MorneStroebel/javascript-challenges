@@ -14,20 +14,10 @@
 
 */}
 
-let count = 0
-function multiplicativePersistence(num: number): number {
+export function multiplicativePersistence(num: number): number {
     if (num < 10) return -1
-    const numToString: string = Math.abs(num).toString()
-        count ++
-        let total = 1
-        for (let i = 0; i < numToString.length; i++) {
-            total *= Number(numToString[i])
-        }
-        multiplicativePersistence(total)
-        return count
-}
-
-export function multiplicativeWithCountClear(num: number): number {
-    count = 0
-    return multiplicativePersistence(num)
+    const stingNumber: string = Math.abs(num).toString()
+        const product = stingNumber.split('').reduce((total, x) => {
+            return total * Number(x)}, 1)
+    return 1 + multiplicativePersistence(product)
 }
