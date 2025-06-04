@@ -9,12 +9,12 @@
 // console.log('================================================')
 Object.defineProperty(exports, "__esModule", { value: true });
 // 2. PaginationHelper
-var idex_1 = require("./src/PaginationHelper/idex");
+var PaginationHelper_1 = require("./src/PaginationHelper");
 var collection = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
     23, 24,
 ];
-var helper = new idex_1.PaginationHelper(collection, 10);
+var helper = new PaginationHelper_1.PaginationHelper(collection, 10);
 var itemCount = helper.itemCount();
 var numberOfPages = helper.pageCount();
 var pageItemCount = helper.pageItemCount(2);
